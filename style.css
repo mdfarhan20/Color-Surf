@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-dark-blue-primary: hsl(218, 23%, 21%);
+    --clr-light-cyan: hsl(184, 47%, 94%);
+    --font-quicksand-primary: 'Quicksand', sans-serif; 
+}
+
+body {
+    height: 100vh;
+    max-width: 100vw;
+    font-family: var(--font-quicksand-primary);
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-dark-blue-primary);
+    color: var(--clr-light-cyan);
+    letter-spacing: .2rem;
+    word-spacing: .4rem;
+}
+
+kbd {
+    border: 1px solid black;
+    padding: 4px;
+    border-radius: 3px;
+    background: rgba(173, 173, 173, 0.412);
+    margin: 0 5px;
+}
+
+.colors-container {
+    flex: 1;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+.color {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.color > .color-icon {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease-in;
+}
+
+.color:hover > .color-icon {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.color-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.color-code {
+    font-size: 1.2rem;
+    color: white;
+    letter-spacing: 2px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.color-name {
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.color-icon {
+    padding: 15px;
+    width: 52px;
+    border-radius: 50%;
+    margin-bottom: 25%;
+}
+
+.color-icon:hover {
+    background-color: rgba(255, 255, 255, 0.284);
+}
+
+.locked {
+    opacity: 1 !important;
+}
+
+.instructions {
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blanchedalmond;
+}
+
+#hint-text {
+    color: var(--clr-dark-blue-primary);
+}
