@@ -1,11 +1,20 @@
 const colorsContainer = document.querySelector('.colors-container');
+const infoIcon = document.getElementById("info-icon"); 
+const infoPopup = document.querySelector(".info-popup");
+const popupCloseBtn = document.querySelector('.close-popup');
 
-const generateRandomNumber = (limit) => Math.floor(Math.random() * limit);
+const toggleInfoPopup = () => {
+    colorsContainer.classList.toggle("backdrop-dull");
+    infoPopup.classList.toggle("hide-display");
+}
 
 document.addEventListener('keydown', (e) => {
     if (e.code === "Space") 
         addColorsToElements();
 })
+
+infoIcon.addEventListener("click", toggleInfoPopup);
+popupCloseBtn.addEventListener("click", toggleInfoPopup);
 
 generateColorElements();
 
@@ -13,9 +22,9 @@ const lockBtns = document.querySelectorAll('.lock-icon');
 lockBtns.forEach(lock => {
     lock.addEventListener("click", () => {
         if (lock.classList.contains("locked"))
-            lock.src = "./img/unlock-icon.png";
+        lock.src = "./img/unlock-icon.png";
         else
-            lock.src = "./img/lock-icon.png";
+        lock.src = "./img/lock-icon.png";
 
         lock.classList.toggle("locked");
     });
@@ -29,6 +38,7 @@ copyBtns.forEach(copy => {
     })
 });
 
+
 function addColorsToElements() {
     const colorElements = document.querySelectorAll('.color');
     colorElements.forEach(async colorEl => {
@@ -41,6 +51,7 @@ function addColorsToElements() {
         const colorCodeEl = colorEl.firstChild.firstChild;
         const colorData = await getColorData(color);
         colorEl.style.backgroundColor = color;
+        colorCodeEl.style.color = color;
         colorCodeEl.textContent = colorData.hexValue;
         colorNameEl.textContent = colorData.name;
     });
@@ -84,6 +95,10 @@ function generateColorElements() {
         colorsContainer.appendChild(div);
     }
     addColorsToElements();
+}
+
+function generateRandomNumber(limit) {
+    return Math.floor(Math.random() * limit);
 }
 
 function generateRandomColor() {

@@ -23,7 +23,8 @@ body {
 nav {
     height: 8vh;
     display: flex;
-    justify-content: center;
+    padding: 0 3%;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--clr-dark-blue-primary);
     color: var(--clr-light-cyan);
@@ -31,12 +32,27 @@ nav {
     word-spacing: .4rem;
 }
 
+#info-icon {
+    width: 32px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: scale 0.2s ease;
+}
+
+#info-icon:hover {
+    scale: 1.2;
+}
+
 kbd {
     border: 1px solid black;
     padding: 4px;
     border-radius: 3px;
-    background: rgba(173, 173, 173, 0.412);
+    background: rgba(0, 0, 0, 0.033);
     margin: 0 5px;
+}
+
+.hide-display {
+    display: none !important;
 }
 
 .colors-container {
@@ -46,6 +62,7 @@ kbd {
     align-items: center;
     gap: 2rem;
     margin: 2rem;
+    transition: all 0.2s ease;
 }
 
 .color {
@@ -78,7 +95,7 @@ kbd {
 
 .color-code {
     font-size: 1.2rem;
-    color: white;
+    background-color: white;
     letter-spacing: 2px;
     padding: 1rem 1.2rem;
     margin: 1rem 0;
@@ -119,4 +136,59 @@ kbd {
 
 #hint-text {
     color: var(--clr-dark-blue-primary);
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.backdrop-dull {
+    pointer-events: none;
+    filter: blur(2px);
+}
+
+.info-popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: white;
+    padding: 2rem;
+    height: 50vh;
+    border: 1px solid var(--clr-dark-blue-primary);
+}
+
+.close-popup {
+    background-color: var(--clr-dark-blue-primary);
+    color: white;
+    border: 1px solid var(--clr-dark-blue-primary);
+    font-size: 1rem;
+    text-align: center;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    margin-top: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.close-popup:hover {
+    background-color: white;
+    color: var(--clr-dark-blue-primary);
+}
+
+.popup-title, .popup-subtitle {
+    letter-spacing: 2px;
+    color: var(--clr-dark-blue-primary);
+}
+
+.popup-title {
+    margin-bottom: 1rem;
+}
+
+.popup-subtitle {
+    margin-top: 1rem;
 }
